@@ -145,7 +145,7 @@ function myFunction() {
             <Head>
             <title>{props.BlogData.BlogTitle}</title>
         <meta name="description" content="Cathing his words" />
-        <link rel="icon" href="https://scontent.fdac7-1.fna.fbcdn.net/v/t39.30808-6/288297294_172079308600872_4980623889519354914_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFAK6nTRUd_OnPh7iwWvZXdWUKXkry13e9ZQpeSvLXd70_b02BeJM7xPYn60BE-Ul7jzEHsjESrrSBk9VTzP9gu&_nc_ohc=qEmSa-ke3JEAX_qqFIh&_nc_ht=scontent.fdac7-1.fna&oh=00_AT837HamD0nO-w-zRXC-yQR86v5a1iqB_-jx7ApnNEjAzg&oe=62ACF71C" />
+        <link rel="icon" href="https://media-exp1.licdn.com/dms/image/C5622AQE9bpjIJlCmJA/feedshare-shrink_800/0/1658073727879?e=1660780800&v=beta&t=qO9Acbg8SaqRNiI9m8LCJ0lBhXoEZv3iJKL0tRS-UCo" />
             </Head>
             <Navbar/>
             
