@@ -14,7 +14,7 @@ const db = client.db("BlogsCollection")
 const collection = db.collection("Comments")
 const result = await collection.insertOne({Body,Commentor,dateTime,PostID})
 client.close();
-
+console.log(process.env.DB_USER)
 resp.status(201).json({
     Comment: result,
     Message:"Comment Posted boss!"

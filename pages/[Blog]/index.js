@@ -5,14 +5,19 @@ import Navbar from '../Components/Navbar';
 import { useRef ,useState,useEffect} from 'react'
 import {useAuth} from '../../context/AuthUserContext'
 import Link from 'next/link';
+import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+// import 'sweetalert2/src/sweetalert2.scss';
 
 
 
 const Blog = (props) => {
-
+// console.log(props)
+const{CommentsOfthePost}=props
   // const[email,setEmail]=useState("")
   const {user}=useAuth() 
-console.log(user)
+// console.log(user)
 // setEmail(user.email)
 
 const addCommentHandler = async (data) => {
@@ -25,9 +30,16 @@ const addCommentHandler = async (data) => {
    }
  }) 
   const res = await response.json()
-  console.log(res)
+  if(res.Comment.acknowledged===true){
+    Swal.fire(
+      'Thanks!',
+      'You Commented on this post!',
+      'success'
+    )
+  }
+  // console.log(res)
 }
-
+console.log(process.env.DB_USER)
 
 const BodyRef = useRef()
 const submitForm =(e)=>{
@@ -45,7 +57,7 @@ addCommentHandler(formData)
 const [ClickResult,setClickResult]=useState()
 
 const addLoveHandler = async (data) => {
-  console.log("sending data::"+data)
+  // console.log("sending data::"+data)
   // console.log("sending data::"+data)
   const response = await fetch("/api/PostLove", {
       method: "POST", 
@@ -55,7 +67,14 @@ const addLoveHandler = async (data) => {
 }
   }) 
   const res = await response.json()
-  console.log(res)
+  if(res.Comment.acknowledged===true){
+    Swal.fire(
+      'Thanks!',
+      'You clicked the React button!',
+      'success'
+    )
+  }
+  // console.log(res)
   setClickResult(res)
 }
 
@@ -71,8 +90,8 @@ useEffect(() => {
 
 },[ClickResult])
 
-console.log(LocalHistory,LocalHistoryID)
-console.log(LocalClicked);
+// console.log(LocalHistory,LocalHistoryID)
+// console.log(LocalClicked);
 
 
 
@@ -86,7 +105,7 @@ const submitLove =()=>{
     dateTime:new Date()
     }
     addLoveHandler(formData)
-    console.log(formData)
+    // console.log(formData)
   localStorage.setItem("ReactBtn", "Clicked");
   localStorage.setItem(`ReactBtnID${props.BlogData.ID}`, `${props.BlogData.ID}`);
 }
@@ -102,11 +121,25 @@ function myFunction() {
   /* Copy the text inside the text field */
   navigator.clipboard.writeText(copyText);
   
-  /* Alert the copied text */
-  alert("Copied the link to your clipboard Mate!");
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-center',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  
+  Toast.fire({
+    icon: 'success',
+    title: 'Copied the Link successfully to your clipboard'
+  })
 }
 
-  // console.log(props)
+  console.log(ClickResult)
     return (
         <Fragment className="">
             <Head>
@@ -238,29 +271,35 @@ Sign in with existing Account
 
         
 
-	<div className="pt-12 border-t dark:border-gray-700">
+	<div className="pt-12 border-t dark:border-gray-700 h-96 overflow-y-scroll		">
   <p className="text-3xl font-bold tracking-widest font-not-italic text-left border-b-2 border-gray-500">Comments</p>
 
+
+{CommentsOfthePost.length>0?
+
+CommentsOfthePost.map((key)=>
 		<div className="flex flex-col space-y-4 md:space-y-0 my-8 md:space-x-6 md:flex-row">
-			<img src="https://source.unsplash.com/75x75/?portrait" alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
-			<div className="flex flex-col">
-				<h4 className="text-lg font-semibold">Leroy Jenkins</h4>
-				<p className="dark:text-gray-400">Sed non nibh iaculis, posuere diam vitae, consectetur neque. Integer velit ligula, semper sed nisl in, cursus commodo elit. Pellentesque sit amet mi luctus ligula euismod lobortis ultricies et nibh.</p>
-			</div>
-		</div>
-				<div className="flex flex-col space-y-4 my-8 md:space-y-0 md:space-x-6 md:flex-row">
-			<img src="https://source.unsplash.com/75x75/?portrait" alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
-			<div className="flex flex-col">
-				<h4 className="text-lg font-semibold">Leroy Jenkins</h4>
-				<p className="dark:text-gray-400">Sed non nibh iaculis, posuere diam vitae, consectetur neque. Integer velit ligula, semper sed nisl in, cursus commodo elit. Pellentesque sit amet mi luctus ligula euismod lobortis ultricies et nibh.</p>
-			</div>
-		</div>		<div className="flex flex-col my-8 space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-			<img src="https://source.unsplash.com/75x75/?portrait" alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
-			<div className="flex flex-col">
-				<h4 className="text-lg font-semibold">Leroy Jenkins</h4>
-				<p className="dark:text-gray-400">Sed non nibh iaculis, posuere diam vitae, consectetur neque. Integer velit ligula, semper sed nisl in, cursus commodo elit. Pellentesque sit amet mi luctus ligula euismod lobortis ultricies et nibh.</p>
-			</div>
-		</div>
+    <img src={key.photoURL ? key.photoURL : "https://cdn-icons-png.flaticon.com/512/2817/2817796.png"} alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
+    <div className="flex flex-col">
+      <h4 className="text-lg font-semibold">{key.Commentor}</h4>
+      <p className="dark:text-gray-400">{key.Body}</p>
+    </div>
+  </div>)
+  :
+  <div className="  flex items-center justify-center 	">
+     <h1 className="mt-3 text-black text-2xl">No Comments Has Been Posted to the blog yet!</h1>
+     <div className="flex items-center justify-center ">
+     <img class="	 mt-2" src="https://2.bp.blogspot.com/-_OiN6gLXQB4/XR1L8qyFrlI/AAAAAAAMmWg/vh8inPGWtrIqx6G1i6mWnbHXGVGeac1mwCLcBGAs/s1600/AS0005464_18.gif" alt="no comments till now"/>
+   </div>
+
+  </div>
+
+
+}
+
+
+
+
 	</div>
 </article>
 
@@ -292,6 +331,8 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const BlogID=context.params.Blog
 console.log(BlogID)
+// console.log(process.env.API_KEY)
+// console.log(process.env.DB_USER)
 
 
   const client = await MongoClient.connect("mongodb+srv://ShuvoKoiri:wXZqMJIk8bAGOfu3@cluster0.fafcxig.mongodb.net/?retryWrites=true&w=majority")

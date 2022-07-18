@@ -149,7 +149,7 @@ export default function Example() {
            
 
           </span>
-          Sign in with GOOGLE
+          Continue with with GOOGLE
         </button>
       </div>
       <hr/>

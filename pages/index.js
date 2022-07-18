@@ -46,7 +46,6 @@ import Banner from './Banner/index';
 export default function Home(props) {
   // console.log(props)
 
-  console.log(process.env.DB_NAME)
   return (
     <Fragment>
       <Head>
@@ -67,7 +66,8 @@ export default function Home(props) {
 
 export async function getStaticProps(context){
  
-  const client = await MongoClient.connect("mongodb+srv://ShuvoKoiri:wXZqMJIk8bAGOfu3@cluster0.fafcxig.mongodb.net/?retryWrites=true&w=majority")
+
+  const client = await MongoClient.connect(`mongodb+srv://ShuvoKoiri:wXZqMJIk8bAGOfu3@cluster0.fafcxig.mongodb.net/?retryWrites=true&w=majority`)
   
     const BlogCollection = client.db("BlogsCollection").collection("PostedBlogs")
     const BlogArray = await BlogCollection.find().toArray()
