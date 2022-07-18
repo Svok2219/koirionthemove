@@ -45,7 +45,9 @@ import Banner from './Banner/index';
 
 export default function Home(props) {
   // console.log(props)
-
+  const{Qoutes}=props
+  let show = Qoutes[Math.floor(Math.random() * Qoutes.length)];
+  //  console.log(show,Qoutes)
   return (
     <Fragment>
       <Head>
@@ -57,7 +59,7 @@ export default function Home(props) {
       </Head>
       {/* <h1>The value of customKey is: {}</h1> */}
             <Navbar/>
-      <Banner/>
+      <Banner Quote={show}/>
      <BlogGrid  Blogs={props.Blog}/>
     </Fragment>
   )
