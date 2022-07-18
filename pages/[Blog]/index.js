@@ -143,24 +143,24 @@ function myFunction() {
     return (
         <Fragment className="">
             <Head>
-            <title>Wellcome to my Blog</title>
+            <title>{props.BlogData.BlogTitle}</title>
         <meta name="description" content="Cathing his words" />
         <link rel="icon" href="https://scontent.fdac7-1.fna.fbcdn.net/v/t39.30808-6/288297294_172079308600872_4980623889519354914_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFAK6nTRUd_OnPh7iwWvZXdWUKXkry13e9ZQpeSvLXd70_b02BeJM7xPYn60BE-Ul7jzEHsjESrrSBk9VTzP9gu&_nc_ohc=qEmSa-ke3JEAX_qqFIh&_nc_ht=scontent.fdac7-1.fna&oh=00_AT837HamD0nO-w-zRXC-yQR86v5a1iqB_-jx7ApnNEjAzg&oe=62ACF71C" />
             </Head>
             <Navbar/>
             
-            <article className="max-w-2xl px-6 py-24 mx-auto space-y-12 dark:bg-gray-800 dark:text-gray-50">
+            <article className="max-w-2xl px-6 py-24 mx-auto space-y-12 ">
 	<div className="w-full mx-auto space-y-4 text-center">
 		<p className="text-xs font-semibold tracking-wider uppercase">{props.BlogData.HashTags}</p>
 		<h1 className="text-4xl font-bold leading-tight md:text-5xl">{props.BlogData.BlogTitle}</h1>
-		<p className="text-sm dark:text-gray-400">Posted
-			<a rel="noopener noreferrer" href="#" target="_blank" className="underline dark:text-violet-400">
+		<p className="text-sm ">Posted
+			<a rel="noopener noreferrer" href="#" target="_blank" className="underline">
 				{/* <span itemprop="name">Leroy Jenkins</span> */}
 			</a>_on_
 			<time  datetime={props.BlogData.dateTime}>{props.BlogData.dateTime}</time>
 		</p>
 	</div>
-	<div className="dark:text-gray-100">
+	<div className="">
 		<p>
 {props.BlogData.BlogBody}
 </p>
@@ -330,7 +330,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const BlogID=context.params.Blog
-console.log(BlogID)
+// console.log(BlogID)
 // console.log(process.env.API_KEY)
 // console.log(process.env.DB_USER)
 
