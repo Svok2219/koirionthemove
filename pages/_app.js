@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
     OneSignal.push(function () {
         OneSignal.init({
           appId: "a3bd770d-87bd-4442-a58e-7f64d027df96",
+          safari_web_id: "web.onesignal.auto.27d2eba6-7621-43e8-b8d4-d2a9de3b8fea",
 // Your other init options here
 notifyButton: {
     enable: true, /* Required to use the Subscription Bell */
