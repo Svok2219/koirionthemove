@@ -214,7 +214,7 @@ const myFunctionPoetry =()=>{
     return (
        
        
-                <div  className="container px-5 py-5 mx-auto ">
+                <div  className="container md:px-5 px-3  py-5 mx-auto ">
 
       <nav className="hidden justify-center xl:space-x-24 lg:space-x-18 md:space-x-9   md:flex  lg-flex mt-12">
             <a onClick={myFunctionAll}   className="rounded-full bg-transparent hover:bg-gray-900 text-black font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent ">All</a>

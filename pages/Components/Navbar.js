@@ -307,7 +307,7 @@ const navigation = [
                    <Disclosure.Button
                   key='Ideas'
                   as="a"
-                  href="#"
+                  href="/"
                  onClick={myFunctionAll}
                   className={classNames(
                    'bg-gray-900 text-white'  ,
