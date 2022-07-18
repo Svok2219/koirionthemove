@@ -16,8 +16,11 @@ export default function Banner() {
              <br/>
              <p className="text-4xl font-medium">--শ্রী শ্রী শুভ কৈরী</p>
              <br/>
-             <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+             <button  className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+             <a target="_blank" href="https://shuvokoiri.netlify.app/">
               About Me
+              </a>
+              
               </button>
                     </div>
 
