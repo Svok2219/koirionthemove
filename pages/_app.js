@@ -66,7 +66,7 @@ notifyButton: {
 // Hide splash screen shen we are server side 
    useEffect(() => {
         if (typeof window !== 'undefined') {
-                const loader = document.getElementById('globalLoader');
+                const loader = document.getElementById('globalLoaderr');
             if (loader)
                 loader.style.display = 'none';
         }

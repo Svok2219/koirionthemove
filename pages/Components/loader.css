@@ -1,4 +1,4 @@
-export default `
+
 body{
 display: block;
 }
@@ -10,7 +10,7 @@ display: block;
     transform: translate(-50%, -50%);
     background-color: #fff;
     display: flex;
-    left: 0,
+    left: 0;
     right: 0;
     width: 100%;
     height: 100%;
@@ -55,4 +55,4 @@ display: block;
   -o-transform: rotate(360deg);
   transform: rotate(360deg);
  }
-}`;
+}
