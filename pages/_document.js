@@ -10,7 +10,7 @@ class MyDocument extends Document {
                 <Head/>
                 <head>
                     <style>
-                        {loader}
+                        {/* {loader} */}
                     </style>
                 </head>
                 <body>
