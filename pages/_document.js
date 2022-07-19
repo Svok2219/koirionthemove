@@ -1,6 +1,6 @@
 import React from 'react'
 import Document, {Html, Head, Main, NextScript} from 'next/document'
-import loader from "../pages/loader";
+import loader from "./Components/loader";
 import { Audio , BallTriangle , Rings} from  'react-loader-spinner'
 
 class MyDocument extends Document {
