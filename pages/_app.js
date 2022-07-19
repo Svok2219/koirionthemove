@@ -1,9 +1,14 @@
 import '../styles/globals.css'
 import { AuthContextProvider } from '../context/AuthUserContext';
 import { useEffect } from 'react';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
+    window.onload = (event) => {
+      console.log('The page has fully loaded');
+  }
+
     window.OneSignal = window.OneSignal || [];
     OneSignal.push(function () {
         OneSignal.init({
@@ -57,6 +62,16 @@ notifyButton: {
         window.OneSignal = undefined;
     };
 }, []);
+
+// Hide splash screen shen we are server side 
+   useEffect(() => {
+        if (typeof window !== 'undefined') {
+                const loader = document.getElementById('globalLoader');
+            if (loader)
+                loader.style.display = 'none';
+        }
+    }, []);
+
   return <AuthContextProvider><Component {...pageProps} /></AuthContextProvider>
 }
 

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useAuth } from './../../context/AuthUserContext';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../../lib/firebase';
+import Link from 'next/link';
 // import 2 from '../Components/2';
 
 export default function Example() {
@@ -93,7 +94,7 @@ export default function Example() {
   <div className="max-w-md w-full h-full space-y-8 px-10 py-10 " >
     <div>
       
-      <img className="mx-auto h-16 w-auto" src="https://media-exp1.licdn.com/dms/image/C5622AQGk-hTJsfKfig/feedshare-shrink_800/0/1658073743016?e=1660780800&v=beta&t=Vdahiwctpfgdl-8wJB_4PCymiNceWCqU9pctrwJ5vFw" alt="Workflow"/>
+      <Link href="/" ><img className="mx-auto h-16 w-auto" src="https://media-exp1.licdn.com/dms/image/C5622AQGk-hTJsfKfig/feedshare-shrink_800/0/1658073743016?e=1660780800&v=beta&t=Vdahiwctpfgdl-8wJB_4PCymiNceWCqU9pctrwJ5vFw" alt="Workflow"/></Link>
       <h2 className="mt-6 text-center text-xl font-extrabold text-gray-900">
         Subscribe with a made up password only for this website  😀	
       </h2>

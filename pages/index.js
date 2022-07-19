@@ -2,13 +2,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Fragment , useState} from 'react'
 
-// import Banner from './Components/Banner/Banner'
+
 import BlogGrid from './Components/BlogGrid/BlogGrid'
 import Navbar from './Components/Navbar'
-// import styles from '../styles/globals.css'
 const MongoClient = require('mongodb').MongoClient;
 import Banner from './Banner/index';
 
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+ 
 
 // export async function getServerSideProps({params,req,res,query,preview,previewData,resolvedUrl,locale,locales,defaultLocale}) {
 
@@ -49,7 +51,7 @@ export default function Home(props) {
   let show = Qoutes[Math.floor(Math.random() * Qoutes.length)];
   //  console.log(show,Qoutes)
   return (
-    <Fragment>
+    <Fragment >
       <Head>
         <title>Wellcome to my Blog</title>
         <meta name="description" content="Cathing his words" />
@@ -57,8 +59,14 @@ export default function Home(props) {
      
         <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
       </Head>
-      {/* <h1>The value of customKey is: {}</h1> */}
-            <Navbar/>
+      {/* <Loader
+        type="Puff"
+        color="#00BFFF"
+        height={100}
+        width={100}
+        timeout={3000} 
+      /> */}
+     <Navbar/>
       <Banner Quote={show}/>
      <BlogGrid  Blogs={props.Blog}/>
     </Fragment>
