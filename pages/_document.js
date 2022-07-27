@@ -1,9 +1,7 @@
 import React from 'react'
 import Document, {Html, Head, Main, NextScript} from 'next/document'
-// import loader from "./Components/loader";
-import { Audio , BallTriangle , Rings} from  'react-loader-spinner'
-// import "./Components/loader.css"
-// import '../styles/globals.css'
+import loader from "./loader";
+// import '../styles/globals'
 class MyDocument extends Document {
     render() {
         return (
@@ -11,28 +9,20 @@ class MyDocument extends Document {
                 <Head/>
                 <head>
                     <style>
-                        {/* {loader} */}
+                        {loader}
                     </style>
                 </head>
-                <body style={{	display: "block"}}>
-                <div id={'globalLoaderr'} style={{	position: "fixed",zindex:"1700" ,
-                backgroundColor: "#fff",
-                display: "flex",
-                left: "0",
-                // transform: "translate(-50%, -50%)",
-                right: "0",
-                width: "100%",
-                height: "100%",
-                justifyContent: "center",
-                alignItems: "center"
-}}>
-                <Rings
-                    height="250"
-                    width="300"
-                    color='grey'
-                    ariaLabel='loading'
-                />
-                </div>
+                <body>
+        <div  id={'globalLoader'} className="load-wrapp">
+        {/* <div className="load-wrapp"> */}
+      <div className="load-3 mx-2">
+        {/* <p>Loading 3</p> */}
+        <div className="line"></div>
+        <div className="line mx-3"></div>
+        <div className="line"></div>
+      </div>
+    {/* </div> */}
+    </div>
                 <Main/>
                 <NextScript/>
                 </body>
@@ -41,4 +31,4 @@ class MyDocument extends Document {
     }
 }
 
-export default MyDocument ;
+export default MyDocument

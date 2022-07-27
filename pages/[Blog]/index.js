@@ -118,7 +118,6 @@ function myFunction() {
   var copyText = `http://localhost:3000/${props.BlogData.ID}`;
 
 
-  /* Copy the text inside the text field */
   navigator.clipboard.writeText(copyText);
   
   const Toast = Swal.mixin({
@@ -137,6 +136,8 @@ function myFunction() {
     icon: 'success',
     title: 'Copied the Link successfully to your clipboard'
   })
+  navigator.clipboard.writeText(copyText);
+
 }
 
   console.log(ClickResult)

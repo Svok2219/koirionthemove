@@ -1,7 +1,9 @@
 import '../styles/globals.css'
 import { AuthContextProvider } from '../context/AuthUserContext';
 import { useEffect } from 'react';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Router from 'next/router';
+import NProgress from 'nprogress'; //nprogress module
+import 'nprogress/nprogress.css'; //styles of nprogress
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -66,12 +68,16 @@ notifyButton: {
 // Hide splash screen shen we are server side 
    useEffect(() => {
         if (typeof window !== 'undefined') {
-                const loader = document.getElementById('globalLoaderr');
+                const loader = document.getElementById('globalLoader');
             if (loader)
                 loader.style.display = 'none';
         }
     }, []);
-
+//Binding events. 
+Router.events.on('routeChangeStart', () => NProgress.start());
+ Router.events.on('routeChangeComplete', () => NProgress.done()); 
+  Router.events.on('routeChangeError', () => NProgress.done());
+  
   return <AuthContextProvider><Component {...pageProps} /></AuthContextProvider>
 }
 

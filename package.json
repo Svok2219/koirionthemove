@@ -20,6 +20,7 @@
     "mongodb": "^4.7.0",
     "mongodb-core": "^3.2.7",
     "next": "^12.1.7-canary.48",
+    "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.1.5",

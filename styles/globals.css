@@ -21,7 +21,7 @@ body{
 		align-items: center;
 	}
 	.loader {
-	 --clr: ##111827 ;
+	 --clr: #111827 ;
 	 /* color of spining  */
 	 width: 100px;
 	 height: 100px;
