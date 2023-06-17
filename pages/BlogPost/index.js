@@ -13,7 +13,7 @@ const Profile = () => {
   
   // Fetch the user client-side
   const { user, loading } = useAuth();
-
+console.log(user)
   // Server-render loading state
   if (!user || user.email === null || !user.email=="shuvo@koiri.com") {
     return <PrivateRoute/>  }

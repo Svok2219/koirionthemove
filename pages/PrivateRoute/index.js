@@ -43,6 +43,7 @@ const PrivateRoute = () => {
     try {
      Glogin(auth, provider)
      router.push("/BlogPost")
+     
     } catch (err) {
       // console.log(err)
       setError(err)
