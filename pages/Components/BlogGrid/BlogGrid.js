@@ -236,7 +236,7 @@ const myFunctionPoetry =()=>{
                     <div className="w-full flex p-2">
                         <div className="p-2 ">
                           <img 
-                            src="https://media-exp1.licdn.com/dms/image/C4E03AQGndAmGbwSoQg/profile-displayphoto-shrink_100_100/0/1620222049532?e=1661385600&v=beta&t=kQgfOvydBc4POxGlofL9J9BSUMXJ0XQvssuvMcdnHS0" alt="author" 
+                            src="https://shuvokoiriofficial.netlify.app/images/shuvo.png" alt="author" 
                             className="w-10 h-10 rounded-full overflow-hidden"/>
                         </div>
                         <div className="pl-2 pt-2 ">

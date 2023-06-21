@@ -12,7 +12,7 @@
     "@headlessui/react": "^1.6.4",
     "canary": "^0.1.5",
     "dotenv": "^16.0.1",
-    "firebase": "^9.8.3",
+    "firebase": "^9.22.2",
     "firebase-tools": "^11.1.0",
     "global": "^4.4.0",
     "heroicons": "^1.0.6",

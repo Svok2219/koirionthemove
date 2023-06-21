@@ -12,7 +12,7 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-    { name: 'HomePage', href: '#', current: true },
+    { name: 'HomePage', href: '/', current: true },
     { name: 'Ideas', href: '#', current: false },
     { name: 'Programming', href: '#', current: false },
     { name: 'Poetry', href: '#', current: false },
@@ -29,19 +29,30 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Post={
-  BlogTitle:"",
-  BlogCategory:"",
-  HashTags:"",
-  BlogBody:"",
-  picture:"",
-  dateTime:new Date()
-}
+// const Post={
+//   BlogTitle:"",
+//   BlogCategory:"",
+//   HashTags:"",
+//   BlogBody:"",
+//   picture:"",
+//   dateTime:new Date()
+// }
+const[clickedCat,setClickedCat]=useState("")
 
+const [Post,setPost]=useState(
+  {
+    BlogTitle:"",
+    BlogCategory:clickedCat,
+    HashTags:"",
+    BlogBody:"",
+    picture:"",
+    dateTime:new Date()
+  }
+)
 export default function BlogPost(props) {
   const [QouteForm,setQouteForm]=useState(false)
   const [Href,setHref]=useState("")
-// //console.log(QouteForm)
+console.log(props)
  
 const changeValue=(e)=>{
  Post[e.target.name]=e.target.value
@@ -51,12 +62,14 @@ const[clicked,setClicked]=useState(false)
 const myFunction = (key) =>{
 // //console.log(key)
 setClicked(key)
+setClickedCat(key)
 const myElement = document.getElementById("BlogCategory");
 myElement.value=key
 Post.BlogCategory=key
 }
 
 const submitSend=async (e)=>{
+  console.log(Post)
   e.preventDefault();
   setPending(true)
   const response  = await fetch('/api/Post', {
@@ -217,7 +230,7 @@ const formSubmitHandler = (e) => {
                         <div>
                           <Menu.Button className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                             <span className="sr-only">Open user menu</span>
-                            <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                            <img className="h-8 w-8 rounded-full" src='https://shuvokoiriofficial.netlify.app/images/shuvo.png'alt="" />
                           </Menu.Button>
                         </div>
                         <Transition
@@ -302,7 +315,7 @@ const formSubmitHandler = (e) => {
                 <div className="pt-4 pb-3 border-t border-gray-700">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
-                      <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                      <img className="h-10 w-10 rounded-full" src='https://shuvokoiriofficial.netlify.app/images/shuvo.png' alt="" />
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium leading-none text-white">{user.name}</div>
@@ -425,6 +438,7 @@ Send it
                           name="HashTags"
                           onBlur={changeValue}
                           id="company-website"
+                          defaultValue={''}
                           className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                           placeholder="  #example_Tag"
                         />
